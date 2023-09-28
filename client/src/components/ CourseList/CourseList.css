@@ -1,0 +1,49 @@
+/* CourseList.css */
+
+/* Style the container */
+.listsec {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style the heading */
+  .line {
+    color: #007BFF;
+  }
+  
+  /* Style the list */
+  .list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap; 
+  }
+  
+  /* Style list items (cards) */
+  .listli {
+    margin: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px); /* Adjust the width as needed for responsiveness */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  /* Style links */
+  a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  /* Hover effect for cards */
+  li:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  

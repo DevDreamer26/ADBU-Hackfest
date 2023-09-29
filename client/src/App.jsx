@@ -9,6 +9,10 @@ import Home from './components/Homepage/Home'; // Uncomment this import
 import CourseList from './components/ CourseList/ CourseList';
 import CourseDetail from './components/CourseDetail/CourseDetail';
 import Quiz from './components/Quiz/Quiz';
+import Course1 from './components/course/Course1'
+import Course2 from './components/course/Course2'
+import Course3 from './components/course/Course3'
+import Task from './components/Task/Task'
 function App() {
   return (
     <>

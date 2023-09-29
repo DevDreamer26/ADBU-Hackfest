@@ -1,58 +1,40 @@
+/* Home.css */
 
-/* Style for the container */
+/* Style the main container */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px;
-  text-align: center;
-  display: flex;
-  align-items: center; /* Vertically align items */
-  justify-content: center; /* Horizontally center items */
-}
-
-/* Style for the heading */
-.container h2 {
-  font-size: 48px;
-  color: #333; /* Dark text color */
-  text-align: left; /* Align text to the left */
-  margin-bottom: 20px;
-}
-
-/* Style for the description */
-.container p {
-  font-size: 24px;
-  color: #777; /* Subdued text color */
-  text-align: left; /* Align text to the left */
-  margin-bottom: 20px;
-}
-
-/* Style for the Explore Courses button */
-.button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 30px;
-  font-size: 24px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.2s ease;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-/* Style for the image */
-.image-container {
-  flex: 1; /* Expand to fill available space */
-  text-align: left; /* Align image to the left */
-  margin-right: 20px; /* Add some spacing between image and text */
-}
-
-.image-container img {
-  max-width: 50%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    background-color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh; 
+  }
+  
+  /* Style the heading */
+  /* h2 {
+    color: #333;
+    margin-bottom: 20px;
+  } */
+  
+  /* Style the paragraph */
+  p {
+    font-size: 48px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  /* Style the Explore Courses button */
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  

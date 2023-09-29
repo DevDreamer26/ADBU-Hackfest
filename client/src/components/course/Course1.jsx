@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'; // Import the useParams hook from React Router
 
 function Course1() {
   const { id } = useParams(); // Use the useParams hook to get the course ID from the URL
@@ -18,16 +20,16 @@ function Course1() {
 
   return (
     <>
-    {course ? (
-      <div>
-        <h1>{course.name}</h1>
-        <div>{course.description}</div>
-        <button><a href="/task">Schedule</a></button>
-      </div>
-    ) : (
-      <p>Loading course details...</p>
-    )}
-  </>
+      {course ? (
+        <div>
+          <h1>{course.name}</h1>
+          <div>{course.description}</div>
+          <button><a href="/task">Schedule</a></button>
+        </div>
+      ) : (
+        <p>Loading course details...</p>
+      )}
+    </>
   );
 }
 

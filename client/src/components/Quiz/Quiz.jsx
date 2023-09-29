@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import './Quiz.css'
 
 function Quiz() {
 

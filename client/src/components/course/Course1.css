@@ -1,0 +1,50 @@
+/* Course1.css */
+
+/* Style for the main container */
+.course-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Style for the heading */
+  .course-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the content */
+  .course-container div {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the button */
+  .course-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-decoration: none; /* Remove underlines from links */
+    display: inline-block;
+    transition: background-color 0.2s ease;
+
+  }
+  
+  .course-button:hover {
+    background-color: #0056b3;
+    
+  }
+  
+  /* Center the button */
+  .button-container {
+    text-align: center;
+  }
+  

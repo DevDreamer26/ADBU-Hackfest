@@ -1,0 +1,65 @@
+/* Quiz.css */
+
+/* Style for the header */
+.header {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+/* Style for the main app container */
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the score section */
+.score-section {
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* Style for the question section */
+.question-section {
+  text-align: center;
+}
+
+/* Style for the question count */
+.question-count {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Style for the question text */
+.question-text {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style for answer buttons */
+.answer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-section button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.answer-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styling can be added as needed */

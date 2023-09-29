@@ -1,22 +1,43 @@
-import './App.css'
-import Home from './Homepage/Home'
-import Login from './register/Login'
-import SignUp from './register/signUp'
-import {BrowserRouter as  Route} from 'react-router-dom'
-import Button from 'react-bootstrap/Button';
-
+import './App.css';
+// import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Button from 'react-bootstrap/Button';
+import Navbar from './components/navbar/Navbar';
+import Home from './components/Homepage/Home'; // Uncomment this import
+// import Login from './components/register/Login'; // Uncomment this import
+// import SignUp from './components/register/signUp'; // Uncomment this import
+import CourseList from './components/ CourseList/ CourseList';
+import CourseDetail from './components/CourseDetail/CourseDetail';
+import Quiz from './components/Quiz/Quiz';
+import Course1 from './components/course/Course1'
+import Course2 from './components/course/Course2'
+import Course3 from './components/course/Course3'
+import Task from './components/Task/Task'
+import Notification from './components/Notification/Noti'
 function App() {
-
   return (
     <>
-    <Route>
-      <Home/>
-    
-      {/* <Login/>
-      <SignUp/> */}
-      </Route>
+      <Router>
+        <Navbar />
+        <Routes> 
+        <Route path="/courses" element={<CourseList />} />
+        <Route path="/course1" element={<Course1/>} />
+        <Route path="/course2" element={<Course2/>} />
+        <Route path="/course3" element={<Course3/>} />
+        <Route path="/task" element={<Task/>} />
+          <Route path="/quiz" element={<Quiz/>} />
+
+          <Route path="/coursedetails" element={<CourseDetail />} /> 
+          <Route path="/" element={<Home />} />
+          <Route path="/QuizGames" element={<Quiz />} /> 
+          <Route path="/notification" element={<Notification />} /> 
+         
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} /> */}
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

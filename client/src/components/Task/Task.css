@@ -1,0 +1,74 @@
+/* Task.css */
+
+/* Style for the main container */
+.tasks-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center-align text content */
+}
+
+/* Style for the header */
+.tasks-container h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Style for the tasks and done tasks sections */
+.tasks-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow tasks to wrap to the next line if necessary */
+}
+
+/* Style for the individual task and done task items */
+.task-item,
+.done-task-item {
+  width: calc(50% - 20px); /* 50% width with some margin */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s ease; /* Add a smooth hover effect */
+}
+
+.task-item:hover,
+.done-task-item:hover {
+  transform: translateY(-5px); /* Lift the task on hover */
+}
+
+/* Style for the task text */
+.task-text,
+.done-task-text {
+  font-size: 18px;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+/* Style for the action buttons */
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}

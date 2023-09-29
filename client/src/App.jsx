@@ -24,13 +24,13 @@ function App() {
           <Route path="/quiz" element={<Quiz/>} />
 
           <Route path="/coursedetails" element={<CourseDetail />} /> 
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/QuizGames" element={<Quiz />} /> 
           <Route path="/notification" element={<Notification />} /> 
           <Route path="/schedule/:id" element={<Schedule />} /> 
          
-          {/* <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} /> */}
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
     </>

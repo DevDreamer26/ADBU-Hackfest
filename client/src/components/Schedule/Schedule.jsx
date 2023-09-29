@@ -9,7 +9,7 @@ function Schedule() {
 
   useEffect(() => {
     // Make an HTTP GET request to fetch the schedule data from your backend API
-    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`) // Replace with your actual API endpoint
+    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`,{ withCredentials: true }) // Replace with your actual API endpoint
       .then((response) => {
         // Set the fetched schedule data in the state
         setScheduleData(response.data.courseschedule);

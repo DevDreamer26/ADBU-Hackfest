@@ -8,7 +8,7 @@ function Course1() {
 
   useEffect(() => {
   
-    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`)
+    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`,{ withCredentials: true })
       .then((response) => {
 
         setCourse(response.data);

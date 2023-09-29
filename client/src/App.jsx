@@ -13,6 +13,7 @@ import Course1 from './components/course/Course1'
 import Course2 from './components/course/Course2'
 import Course3 from './components/course/Course3'
 import Task from './components/Task/Task'
+import Notification from './components/Notification/Noti'
 function App() {
   return (
     <>
@@ -26,10 +27,11 @@ function App() {
         <Route path="/task" element={<Task/>} />
           <Route path="/quiz" element={<Quiz/>} />
 
-          <Route path="/coursedetails" element={<CourseDetail />} /> {/* Use a different path */}
-          <Route path="/" element={<Home />} /> {/* Use a different path */}
-          <Route path="/QuizGames" element={<Quiz />} /> {/* Use a different path */}
-          {/* Uncomment the following routes if needed */}
+          <Route path="/coursedetails" element={<CourseDetail />} /> 
+          <Route path="/" element={<Home />} />
+          <Route path="/QuizGames" element={<Quiz />} /> 
+          <Route path="/notification" element={<Notification />} /> 
+         
           {/* <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} /> */}
         </Routes>

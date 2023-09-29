@@ -5,9 +5,12 @@ function Homepage() {
   return (
     <>
     <div className="container">
-      <h2>Welcome to the E-Learning Platform</h2>
+      <h2 style={{color:'darkblue',fontSize:'100px'}}>Welcome to the E-Learning Platform</h2>
       <p>Find and enroll in courses to start learning.</p>
-      <a href="/courses" className="button">Explore Courses</a>
+      <button >
+      <a href="/courses" className="button" style={{fontSize:'40px'}}>Explore Courses</a>
+      </button>
+      
      
     </div>
     </>

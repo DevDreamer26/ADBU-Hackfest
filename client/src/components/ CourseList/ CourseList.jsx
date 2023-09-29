@@ -7,7 +7,7 @@ export default function CourseList() {
 
   useEffect(() => {
     
-    axios.get('http://localhost:8800/api/course/findcourse') 
+    axios.get('http://localhost:8800/api/course/findcourse',{ withCredentials: true } )
       .then((response) => {
         
         setCourses(response.data);

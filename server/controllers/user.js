@@ -35,30 +35,32 @@ export const signup = async(req, res) =>{
 
 export const signin = async (req, res) => {
     try {
-        const userFound = await user.findOne({ name: req.body.name });
-        if (!userFound) {
-            console.log('incorrect username');
-            // You might want to return a response indicating the incorrect username.
-            return res.status(401).json({ error: 'Incorrect username or password' });
+        const users = await user.findOne({ name: req.body.name });
+        if (!users) {
+            console.log('Incorrect name');
+            return res.status(404).json({ error: "Incorrect name" });
         }
 
-        const isCorrect = await bcrypt.compare(req.body.password.toString(), userFound.password);
+
+        if (!users.password) {
+            console.log('Password field missing in user object');
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+
+        const isCorrect = await bcrypt.compare(req.body.password.toString(), users.password);
         if (!isCorrect) {
-            console.log('incorrect password');
-            // You might want to return a response indicating the incorrect password.
-            return res.status(401).json({ error: 'Incorrect username or password' });
+            console.log('Incorrect password');
+            return res.status(401).json({ error: "Incorrect password" });
         }
 
-        const { password, ...others } = userFound.toObject(); // Use toObject to get a plain JavaScript object.
-
-        const token = jwt.sign({ id: userFound._id }, JWT);
+        const { password, ...others } = users._doc;
+        const token = jwt.sign({ id: users._id }, JWT);
         res.cookie("access_token", token, {
-            httpOnly: true
-        }).status(200).json({ ...others, token }); // Use spread operator to include other properties.
-
-        console.log(userFound._id);
-    } catch (err) {
-        console.log(err);
+            httpOnly: true,
+        }).status(200).json({others,token});
+        console.log('Logged in');
+    } catch (error) {
+        console.log(error);
         res.status(500).send("An error occurred");
     }
 };

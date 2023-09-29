@@ -11,9 +11,9 @@ const router = express.Router();
 
 
 router.post("/addcourse", addCourse)
-router.get("/findcourse", findCourse)
-router.get("/findsinglecourse/:id", findsingleCourse)
-router.post("/addschedule/:id", addschedule)
+router.get("/findcourse", verifyToken, findCourse)
+router.get("/findsinglecourse/:id", verifyToken, findsingleCourse)
+router.post("/addschedule/:id", verifyToken, addschedule)
 
 
 

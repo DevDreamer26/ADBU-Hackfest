@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Button, Container, Grid, Paper, Typography } from '@mui/material';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+
 import './Task.css';
 
 function Task() {
@@ -8,7 +11,7 @@ function Task() {
 
   useEffect(() => {
     // Make an HTTP GET request to fetch tasks from the backend
-    axios.get('http://localhost:8800/api/task/findtask')
+    axios.get('http://localhost:8800/api/task/findtask', { withCredentials: true })
       .then((response) => {
         // Set the fetched tasks in the state
         setTasks(response.data);
@@ -18,38 +21,45 @@ function Task() {
       });
   }, []);
 
-  const moveTaskToDone = (taskId) => {
-    const taskToMove = tasks.find((task) => task.id === taskId);
-    if (taskToMove) {
-      setTasks((prevTasks) =>
-        prevTasks.filter((task) => task.id !== taskId)
-      );
-
-      setDoneTasks((prevDoneTasks) => [...prevDoneTasks, taskToMove]);
-    }
+  const moveTaskToDone = (taskToMove) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskToMove.id));
+    setDoneTasks((prevDoneTasks) => [...prevDoneTasks, taskToMove]);
   };
 
   return (
-    <div>
-      <h1 style={{ textAlign: 'center' }}>Tasklist</h1>
-      <div className="tasks">
-      {tasks.map((task) => (
-        <div key={task.id} className='tasklist'>
-          <p>{task.text}</p>
-          <button onClick={() => moveTaskToDone(task.id)}>✔️</button>
-        </div>
-      ))}
-      </div>
-
-      <div className="done-tasks">
-        <h1>Completed</h1>
-        {doneTasks.map((task) => (
-          <div key={task.id} className='tasklist'>
-            <p>{task.task}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Container>
+      <Typography variant="h3" align="center" gutterBottom>
+        Tasklist
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <Typography variant="h4">Tasks</Typography>
+          {tasks.map((task) => (
+            <Paper key={task.id} className="tasklist">
+              <Typography>{task.task}</Typography>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={() => moveTaskToDone(task)}
+              >
+                Move to Completed
+              </Button>
+            </Paper>
+          ))}
+        </Grid>
+        <Grid item xs={6}>
+          <Typography variant="h4">Completed</Typography>
+          {doneTasks.map((task) => (
+            <Paper key={task.id} className="tasklist">
+              <Typography>
+                <CheckCircleOutlineIcon style={{ marginRight: '8px' }} />
+                {task.task}
+              </Typography>
+            </Paper>
+          ))}
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

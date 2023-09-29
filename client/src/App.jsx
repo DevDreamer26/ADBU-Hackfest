@@ -23,7 +23,8 @@ function App() {
         <Route path="/course1" element={<Course1/>} />
         <Route path="/course2" element={<Course2/>} />
         <Route path="/course3" element={<Course3/>} />
-          <Route path="/task" element={<Task/>} />
+        <Route path="/task" element={<Task/>} />
+          <Route path="/quiz" element={<Quiz/>} />
 
           <Route path="/coursedetails" element={<CourseDetail />} /> {/* Use a different path */}
           <Route path="/" element={<Home />} /> {/* Use a different path */}

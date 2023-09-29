@@ -10,8 +10,6 @@ import CourseList from './components/ CourseList/ CourseList';
 import CourseDetail from './components/CourseDetail/CourseDetail';
 import Quiz from './components/Quiz/Quiz';
 import Course1 from './components/course/Course1'
-import Course2 from './components/course/Course2'
-import Course3 from './components/course/Course3'
 import Task from './components/Task/Task'
 import Notification from './components/Notification/Noti'
 import Schedule from './components/Schedule/Schedule';
@@ -23,8 +21,6 @@ function App() {
         <Routes> 
         <Route path="/courses" element={<CourseList />} />
         <Route path="/course/:id" element={<Course1/>} />
-        <Route path="/course2" element={<Course2/>} />
-        <Route path="/course3" element={<Course3/>} />
         <Route path="/task" element={<Task/>} />
           <Route path="/quiz" element={<Quiz/>} />
 

@@ -12,6 +12,7 @@ import Quiz from './components/Quiz/Quiz';
 import Course1 from './components/course/Course1'
 import Task from './components/Task/Task'
 import Notification from './components/Notification/Noti'
+import Schedule from './components/Schedule/Schedule';
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/QuizGames" element={<Quiz />} /> 
           <Route path="/notification" element={<Notification />} /> 
+          <Route path="/schedule" element={<Schedule />} /> 
          
           {/* <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} /> */}

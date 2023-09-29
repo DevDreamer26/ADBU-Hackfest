@@ -11,6 +11,7 @@ const Navbar = () => {
         <li><a href="/task">Tasks</a></li>
         <li><a href="/quiz">Quiz Games</a></li>
         <li><a href="/notification">Notification</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
       </ul>
     </nav>
   );

@@ -26,6 +26,7 @@ const courseSchema = new mongoose.Schema({
         type : String,
         required: true
     },
+    description: {type: String, required : true},
     courseschedule : [scheduleSchema],
     notes : [notesSchema]
 })

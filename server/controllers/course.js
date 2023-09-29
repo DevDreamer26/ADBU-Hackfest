@@ -14,6 +14,28 @@ export const addCourse = async (req, res) => {
 }
 
 
+export const findCourse = async (req, res) => {
+    try {
+        const Course = await course.find()
+      res.status(200).json(Course);
+    } catch (error) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+
+export const findsingleCourse = async (req, res) => {
+    try {
+        const Course = await course.findById(req.params.id)
+      res.status(200).json(Course);
+    } catch (error) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+
 
 export const addschedule = async (req, res) => {
     try {
@@ -38,6 +60,8 @@ export const addschedule = async (req, res) => {
       res.status(500).json({ message: "Internal server error" });
     }
   };
+
+
 
 
 

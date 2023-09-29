@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'; // Import the useParams hook from React Router
 
 function Course1() {
+  const { id } = useParams(); // Use the useParams hook to get the course ID from the URL
+  const [course, setCourse] = useState(null);
+
+  useEffect(() => {
+    // Make an HTTP GET request to fetch the details of the course with the specified ID
+    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`) // Replace with your actual API endpoint
+      .then((response) => {
+        // Set the fetched course details in the state
+        setCourse(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching course details:', error);
+      });
+  }, [id]);
+
   return (
     <>
-    <h1>Science</h1>
-    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius reprehenderit illum quas nam non, sunt delectus hic aut cumque deserunt perferendis suscipit temporibus accusamus quisquam. Officiis necessitatibus temporibus doloremque consequuntur error asperiores doloribus itaque eaque accusantium sint! Fuga pariatur nesciunt aperiam qui, repellendus perferendis voluptate.</div>
-    <button ><a href="/task">TASK</a>
-      
-    </button>
+      {course ? (
+        <div>
+          <h1>{course.name}</h1>
+          <div>{course.description}</div>
+          <button><a href="/task">Schedule</a></button>
+        </div>
+      ) : (
+        <p>Loading course details...</p>
+      )}
     </>
-  )
+  );
 }
+
 export default Course1;

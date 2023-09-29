@@ -9,7 +9,7 @@ function Course1() {
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius reprehenderit illum quas nam non, sunt delectus hic aut cumque deserunt perferendis suscipit temporibus accusamus quisquam. Officiis necessitatibus temporibus doloremque consequuntur error asperiores doloribus itaque eaque accusantium sint! Fuga pariatur nesciunt aperiam qui, repellendus perferendis voluptate.
       </div>
       <div className="button-container">
-        <a href="/task" className="course-button">Schedule</a>
+        <a href="/schedule" className="course-button">Schedule</a>
       </div>
     </div>
     </>

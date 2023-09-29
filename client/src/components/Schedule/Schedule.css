@@ -1,0 +1,60 @@
+/* Schedule.css */
+
+/* Style for the main container */
+.schedule-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Style for the heading */
+  .schedule-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the schedule list */
+  .schedule-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Style for individual schedule items */
+  .schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for the day */
+  .day {
+    font-size: 18px;
+    font-weight: bold;
+    flex-basis: 25%;
+  }
+  
+  /* Style for the time */
+  .time {
+    font-size: 18px;
+    flex-basis: 40%;
+  }
+  
+  /* Style for the event */
+  .event {
+    font-size: 18px;
+    flex-basis: 30%;
+    text-align: right;
+  }
+  
+  /* Add more styles or customize as needed */
+  

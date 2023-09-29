@@ -14,6 +14,7 @@ import Course2 from './components/course/Course2'
 import Course3 from './components/course/Course3'
 import Task from './components/Task/Task'
 import Notification from './components/Notification/Noti'
+import Schedule from './components/Schedule/Schedule';
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/QuizGames" element={<Quiz />} /> 
           <Route path="/notification" element={<Notification />} /> 
+          <Route path="/schedule" element={<Schedule />} /> 
          
           {/* <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} /> */}

@@ -29,6 +29,7 @@ function App() {
           <Route path="/QuizGames" element={<Quiz />} /> 
           <Route path="/notification" element={<Notification />} /> 
           <Route path="/schedule/:id" element={<Schedule />} /> 
+          <Route path="/leaderboard" element={<Leaderboard />} /> 
          
           {/* <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} /> */}

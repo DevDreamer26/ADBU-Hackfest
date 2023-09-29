@@ -1,36 +1,34 @@
-import React from 'react';
-import './CourseList.css'
-
+import React, { useEffect, useState } from 'react';
+import './CourseList.css';
+import axios from 'axios';
 
 export default function CourseList() {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    
+    axios.get('http://localhost:8800/api/course/findcourse') 
+      .then((response) => {
+        
+        setCourses(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching course data:', error);
+      });
+  }, []);
+
   return (
     <>
-    <div className='listsec'>
-      <h2 className='line'>Available Courses</h2>
-      <ul className='list'>
-        <li className='listli'><a href="/course1">Course 1</a></li>
-        <li className='listli'><a href="/course2">Course 2</a></li>
-        <li className='listli'><a href="/course3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        <li className='listli'><a href="/courses/3">Course 3</a></li>
-        {/* Add more courses here */}
-      </ul>
-    </div>
+      <div className='listsec'>
+        <h2 className='line'>Available Courses</h2>
+        <ul className='list'>
+          {courses.map((course) => (
+            <li key={course._id} className='listli'>
+              <a href={`/course/${course._id}`}>{course.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
-
-

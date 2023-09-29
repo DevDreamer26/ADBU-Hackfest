@@ -22,7 +22,7 @@ function App() {
         <Navbar />
         <Routes> 
         <Route path="/courses" element={<CourseList />} />
-        <Route path="/course1" element={<Course1/>} />
+        <Route path="/course/:id" element={<Course1/>} />
         <Route path="/course2" element={<Course2/>} />
         <Route path="/course3" element={<Course3/>} />
         <Route path="/task" element={<Task/>} />

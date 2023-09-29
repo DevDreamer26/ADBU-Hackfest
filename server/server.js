@@ -6,6 +6,7 @@ import taskRouter from './routes/task.js'
 import quizRouter from './routes/quiz.js'
 import userRouter from './routes/user.js'
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 
 
@@ -30,6 +31,7 @@ const connect = async() => {
 
 
 
+app.use(cors({origin: 'http://localhost:5173'}))
 app.use(cookieParser());
 app.use(express.json())
 app.use('/api/course', courseRouter)

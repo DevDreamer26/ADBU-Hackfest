@@ -1,43 +1,38 @@
-import React from "react";
-import './Schedule.css'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import './Schedule.css';
+import { useParams } from 'react-router-dom';
 
-function Schedule(){
-    const scheduleData = [
-        {
-          id: 1,
-          day: "Monday",
-          time: "9:00 AM - 10:30 AM",
-          event: "Meeting",
-        },
-        {
-          id: 2,
-          day: "Tuesday",
-          time: "2:00 PM - 3:30 PM",
-          event: "Training",
-        },
-        {
-          id: 3,
-          day: "Wednesday",
-          time: "11:00 AM - 12:30 PM",
-          event: "Presentation",
-        },
-        
-      ];
-    return(
-       <>
-            <div className="schedule-container">
-      <h1>Schedule</h1>
-      <ul className="schedule-list">
-        {scheduleData.map((item) => (
-          <li key={item.id} className="schedule-item">
-            <div className="day">{item.day}</div>
-            <div className="time">{item.time}</div>
-            <div className="event">{item.event}</div>
-          </li>
-        ))}
-      </ul>
-    </div>
-       </>
-    )
-};
+function Schedule() {
+  const { id } = useParams();
+  const [scheduleData, setScheduleData] = useState([]);
+
+  useEffect(() => {
+    // Make an HTTP GET request to fetch the schedule data from your backend API
+    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`) // Replace with your actual API endpoint
+      .then((response) => {
+        // Set the fetched schedule data in the state
+        setScheduleData(response.data.courseschedule);
+      })
+      .catch((error) => {
+        console.error('Error fetching schedule data:', error);
+      });
+  }, []);
+
+  return (
+    <>
+      <div className="schedule-container">
+        <h1>Schedule</h1>
+        <ul className="schedule-list">
+          {scheduleData.map((item) => (
+            <li key={item.id} className="schedule-item">
+              <div className="day">{item.schedule}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
 export default Schedule;

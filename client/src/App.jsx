@@ -1,11 +1,10 @@
 import './App.css';
-// import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import Navbar from './components/navbar/Navbar';
-import Home from './components/Homepage/Home'; // Uncomment this import
-// import Login from './components/register/Login'; // Uncomment this import
-// import SignUp from './components/register/signUp'; // Uncomment this import
+import Home from './components/Homepage/Home'; 
+import Login from './components/register/Login';
+import SignUp from './components/register/signUp'; 
 import CourseList from './components/ CourseList/ CourseList';
 import CourseDetail from './components/CourseDetail/CourseDetail';
 import Quiz from './components/Quiz/Quiz';
@@ -28,9 +27,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/QuizGames" element={<Quiz />} /> 
           <Route path="/notification" element={<Notification />} /> 
-          <Route path="/schedule" element={<Schedule />} /> 
+          <Route path="/schedule/:id" element={<Schedule />} /> 
          
-          {/* <Route path="/login" element={<Login />} />
+          {/* <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} /> */}
         </Routes>
       </Router>

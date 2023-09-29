@@ -1,4 +1,6 @@
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useHistory
+import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,19 +16,35 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+
+  const navigate = useNavigate()
+  const [data, setData] = useState({ name: '', password: '' });
+
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    axios
+      .get(`http://localhost:8800/api/user/signin?name=${data.name}&password=${data.password}`)
+      .then((response) => {
+        console.log(response.data);
+        // Handle the response data as needed
+        // If login is successful, redirect to the home page
+        navigate('/home'); // Replace '/home' with your actual home page route
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
   };
 
   return (
@@ -41,22 +59,19 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+          {/* ... Rest of your component */}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="name"
+              label="Name"
+              name="name"
+              autoComplete="name"
               autoFocus
+              value={data.name}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -67,31 +82,10 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={data.password}
+              onChange={handleChange}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account?   Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            {/* ... Rest of your component */}
           </Box>
         </Box>
       </Container>

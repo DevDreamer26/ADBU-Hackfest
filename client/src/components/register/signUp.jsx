@@ -23,7 +23,7 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      name: data.get('name'),
       password: data.get('password'),
     });
   };
@@ -51,10 +51,10 @@ export default function SignUp() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="name"
+              label="Name Address"
+              name="name"
+              autoComplete="name"
               autoFocus
             />
             <TextField
@@ -67,10 +67,6 @@ export default function SignUp() {
               id="password"
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
             <Button
               type="submit"
               fullWidth

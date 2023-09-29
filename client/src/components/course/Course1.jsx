@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // Import the useParams hook from React Router
+import { useParams, Link } from 'react-router-dom'; 
 
 function Course1() {
-  const { id } = useParams(); // Use the useParams hook to get the course ID from the URL
+  const { id } = useParams(); 
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    // Make an HTTP GET request to fetch the details of the course with the specified ID
-    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`) // Replace with your actual API endpoint
+  
+    axios.get(`http://localhost:8800/api/course/findsinglecourse/${id}`)
       .then((response) => {
-        // Set the fetched course details in the state
+
         setCourse(response.data);
       })
       .catch((error) => {
@@ -24,7 +24,10 @@ function Course1() {
         <div>
           <h1>{course.name}</h1>
           <div>{course.description}</div>
-          <button><a href="/task">Schedule</a></button>
+
+          <Link to={`/schedule/${id}`}>
+            <button>Schedule</button>
+          </Link>
         </div>
       ) : (
         <p>Loading course details...</p>

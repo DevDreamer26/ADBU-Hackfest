@@ -12,3 +12,13 @@ export const addtask = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
+
+export const findtask = async (req, res) => {
+    try {
+        const tasks = await task.find()
+        res.status(200).json(tasks)
+    } catch (error) {
+        console.log(error)
+    }
+}

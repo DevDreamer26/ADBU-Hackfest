@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Task.css';
 
 function Task() {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'Task 1', completed: false },
-    { id: 2, text: 'Task 2', completed: false },
-    { id: 3, text: 'Task 3', completed: false },
-    { id: 4, text: 'Task 3', completed: false },
-  ]);
-
+  const [tasks, setTasks] = useState([]);
   const [doneTasks, setDoneTasks] = useState([]);
+
+  useEffect(() => {
+    // Make an HTTP GET request to fetch tasks from the backend
+    axios.get('http://localhost:8800/api/task/findtask')
+      .then((response) => {
+        // Set the fetched tasks in the state
+        setTasks(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching tasks:', error);
+      });
+  }, []);
 
   const moveTaskToDone = (taskId) => {
     const taskToMove = tasks.find((task) => task.id === taskId);
@@ -22,29 +29,23 @@ function Task() {
     }
   };
 
-//   const removeTask = (taskId) => {
-//     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-//   };
-
   return (
     <div>
-        <h1 style={{textAlign:'center'}}>Tasklist</h1>
+      <h1 style={{ textAlign: 'center' }}>Tasklist</h1>
       <div className="tasks">
-       
-        {tasks.map((task) => (
-          <div key={task.id} className='tasklist'>
-            <p>{task.text}</p>
-            <button onClick={() => moveTaskToDone(task.id)}>✔️</button>
-            {/* <button onClick={() => removeTask(task.id)}>❌</button> */}
-          </div>
-        ))}
+      {tasks.map((task) => (
+        <div key={task.id} className='tasklist'>
+          <p>{task.text}</p>
+          <button onClick={() => moveTaskToDone(task.id)}>✔️</button>
+        </div>
+      ))}
       </div>
 
       <div className="done-tasks">
         <h1>Completed</h1>
         {doneTasks.map((task) => (
           <div key={task.id} className='tasklist'>
-            <p>{task.text}</p>
+            <p>{task.task}</p>
           </div>
         ))}
       </div>

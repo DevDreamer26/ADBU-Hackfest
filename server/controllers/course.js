@@ -30,10 +30,11 @@ export const findsingleCourse = async (req, res) => {
         const Course = await course.findById(req.params.id)
       res.status(200).json(Course);
     } catch (error) {
-        console.error(err);
+        console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
 
 
 
